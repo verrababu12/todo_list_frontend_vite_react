@@ -28,7 +28,9 @@ const TodoList = () => {
   const fetchTodoList = async () => {
     setApiStatus(apiStatusConstants.loading);
     try {
-      const response = await fetch("http://localhost:3001/api/todos");
+      const response = await fetch(
+        "https://todo-list-backend-mongodb.onrender.com/api/todos"
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch todos");
       }
@@ -55,11 +57,14 @@ const TodoList = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:3001/api/add-todo", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newTodo),
-      });
+      const response = await fetch(
+        "https://todo-list-backend-mongodb.onrender.com/api/add-todo",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newTodo),
+        }
+      );
       const addedTodo = await response.json();
       setTodoList((prevTodos) => [...prevTodos, addedTodo]);
       setTodosCount((prevCount) => prevCount + 1);
@@ -71,11 +76,14 @@ const TodoList = () => {
 
   const onTodoStatusChange = async (todoId, isChecked) => {
     try {
-      await fetch(`http://localhost:3001/api/todos/${todoId}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ isChecked }),
-      });
+      await fetch(
+        `https://todo-list-backend-mongodb.onrender.com/api/todos/${todoId}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ isChecked }),
+        }
+      );
       setTodoList((prevTodos) =>
         prevTodos.map((todo) =>
           todo._id === todoId ? { ...todo, isChecked } : todo
@@ -88,9 +96,12 @@ const TodoList = () => {
 
   const onDeleteTodo = async (todoId) => {
     try {
-      await fetch(`http://localhost:3001/api/todos/${todoId}`, {
-        method: "DELETE",
-      });
+      await fetch(
+        `https://todo-list-backend-mongodb.onrender.com/api/todos/${todoId}`,
+        {
+          method: "DELETE",
+        }
+      );
       fetchTodoList();
     } catch (error) {
       console.error("Error deleting todo:", error);
@@ -108,11 +119,14 @@ const TodoList = () => {
 
   const saveEditedTodo = async () => {
     try {
-      await fetch(`http://localhost:3001/api/todos/${editingTodoId}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: editingText }),
-      });
+      await fetch(
+        `https://todo-list-backend-mongodb.onrender.com/api/todos/${editingTodoId}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text: editingText }),
+        }
+      );
       setEditingTodoId(null);
       setEditingText("");
       fetchTodoList();
