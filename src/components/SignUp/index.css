@@ -1,0 +1,194 @@
+.background-sign-up-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-size: cover;
+  padding: 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 4px;
+  /* background: #7ad58e; */
+  width: 35%;
+  min-height: 450px;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  color: #ffffff; /* White text for contrast */
+}
+.heading {
+  font-family: "BreeSerif";
+  font-size: 28px;
+  color: aqua;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.input-field {
+  height: 30px;
+  margin-top: 5px;
+  font-size: 14px;
+  border: 1px solid #d7dfe9;
+  color: #0e0d0d;
+  border-radius: 2px;
+  padding: 8px 16px 8px 16px;
+}
+.input-label {
+  margin-bottom: 0px;
+  font-family: "Roboto";
+  font-weight: bold;
+  font-size: 15px;
+  color: #f56cce;
+}
+.signup-btn {
+  font-family: "Roboto";
+  font-weight: bold;
+  color: #fff;
+  height: 40px;
+  width: 30%;
+  background-color: #0b69ff;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
+.signup-btn:hover {
+  background-color: #084ccd;
+}
+.login-btn {
+  font-family: "Roboto";
+  background-color: #0b69ff;
+  height: 40px;
+  width: 130px;
+  font-weight: bold;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .card-container {
+    width: 80%; /* Increase width for better usability */
+    min-height: auto; /* Allow dynamic height */
+    padding: 15px;
+  }
+
+  .heading {
+    font-size: 24px; /* Reduce font size */
+  }
+
+  .input-container {
+    width: 100%; /* Take full width */
+  }
+
+  .input-field {
+    font-size: 14px;
+    padding: 8px;
+    height: 35px;
+  }
+
+  .signup-btn {
+    width: 50%; /* Make button larger */
+    font-size: 14px;
+  }
+}
+
+/* Further optimizations for very small screens */
+@media (max-width: 480px) {
+  .card-container {
+    width: 90%; /* Almost full width */
+    padding: 10px;
+  }
+
+  .heading {
+    font-size: 22px;
+  }
+
+  .input-field {
+    font-size: 13px;
+    padding: 6px;
+  }
+
+  .signup-btn {
+    width: 60%; /* Bigger button */
+    height: 35px;
+  }
+}
+
+/* .password-field {
+  width: 100%;
+  padding-right: 30px;
+} */
+
+.password-input-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 8px 40px 8px 10px; /* right padding to make space for icon */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.toggle-password-icon {
+  position: absolute;
+  right: 10px; /* keep inside */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #333;
+  cursor: pointer;
+  font-size: 18px;
+}
+.error-text {
+  font-size: 18px;
+}
+.card-container {
+  position: relative; /* Needed for loader overlay positioning */
+}
+
+.loader-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

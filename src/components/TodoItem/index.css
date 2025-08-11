@@ -1,10 +1,8 @@
 .todo-item-container {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  margin-bottom: 8px;
   background-image: linear-gradient(to right, #fa7ddf, #7da9df);
   border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
@@ -13,21 +11,27 @@
   transform: scale(1.02);
 }
 
-/* Checkbox styling */
+.todo-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .checkbox-input {
-  margin-right: 15px;
   transform: scale(1.2);
   cursor: pointer;
-  height: 20px;
 }
 
 .checkbox-label {
-  flex-grow: 1;
   font-size: 16px;
   font-family: "BreeSerif";
-  /* margin-top: 5px; */
   color: #333;
-  transition: color 0.3s;
 }
 
 .checkbox-label.checked {
@@ -35,27 +39,25 @@
   color: #19034b;
 }
 
-/* Edit input styling */
 .edit-input {
-  width: 75%;
-  padding: 8px;
+  padding: 6px;
   font-size: 16px;
   border: 1px solid #4caf50;
   border-radius: 5px;
   outline: none;
 }
 
-/* Icon containers */
-.edit-icon-container,
-.delete-icon-container {
-  margin-left: 10px;
-  cursor: pointer;
+.todo-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .edit-icon {
+  font-size: 20px;
   color: #1a1e18;
-  transition: color 0.3s ease;
-  font-size: 22px;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
 .edit-icon:hover {
@@ -63,65 +65,25 @@
 }
 
 .delete-icon {
+  font-size: 20px;
   color: #e53935;
-  transition: color 0.3s ease;
-  font-size: 22px;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
 .delete-icon:hover {
   color: #d32f2f;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .todo-item-container {
-    padding: 8px;
-    margin-bottom: 6px;
-    flex-wrap: wrap;
-  }
-
-  .checkbox-label {
-    font-size: 14px;
-    margin-top: 4px;
-  }
-
-  .edit-input {
-    width: 70%;
-    font-size: 14px;
-  }
-
-  .edit-icon,
-  .delete-icon {
-    font-size: 20px;
-  }
+.todo-bottom-row {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  color: #555;
 }
 
-@media (max-width: 480px) {
-  .todo-item-container {
-    padding: 6px;
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .checkbox-input {
-    margin-right: 10px;
-    transform: scale(1);
-    height: 18px;
-  }
-
-  .checkbox-label {
-    font-size: 12px;
-    margin-top: 6px;
-  }
-
-  .edit-input {
-    width: 100%;
-    font-size: 12px;
-  }
-
-  .edit-icon,
-  .delete-icon {
-    font-size: 18px;
-    margin-left: 5px;
-  }
+.todo-date.updated {
+  color: #888;
+  font-style: italic;
 }

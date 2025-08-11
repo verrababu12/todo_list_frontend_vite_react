@@ -8,9 +8,10 @@ import {
 import Signup from "./components/SignUp";
 import Login from "./components/Login";
 import TodoList from "./components/TodoList";
+import "./App.css";
 
 const PrivateRoute = ({ children }) => {
-  const token = localStorage.getItem("project_todo_token");
+  const token = localStorage.getItem("my_todo_project_token");
   return token ? children : <Navigate to="/login" />;
 };
 
